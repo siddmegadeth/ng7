@@ -119,8 +119,8 @@ in options. (Required). Failing to pass ** angular: true ** will result in ng7 e
 one time activity.
 
 
-**Other API Documentation under process **
-But if you like you could check it out
+** Other API Documentation under process ** <br />
+But if you like you could check it out <br />
 framework7.picker(<element id>) : Opens Time Picker with Date <br />
 framework7.datePicker   : picks with date  <br />
 framework7.modal.alert   : Framework7 Alert  <br />

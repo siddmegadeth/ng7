@@ -121,14 +121,14 @@ one time activity.
 
 **Other API Documentation under process **
 But if you like you could check it out
-framework7.picker(<element id>) : Opens Time Picker with Date
-framework7.datePicker   : picks with date
-framework7.modal.alert   : Framework7 Alert
-framework7.modal.confirm  : Framework7 confirm
-framework7.modal.indicatorShow : Framework7 loader show
-framework7.modal.indicatorHide : Framework7 loader hide
-framework7.preloader.show   : custom : Framework7 loader show
-framework7.preloader.hide   : : Framework7 loader show 
+framework7.picker(<element id>) : Opens Time Picker with Date <br />
+framework7.datePicker   : picks with date  <br />
+framework7.modal.alert   : Framework7 Alert  <br />
+framework7.modal.confirm  : Framework7 confirm  <br />
+framework7.modal.indicatorShow : Framework7 loader show  <br />
+framework7.modal.indicatorHide : Framework7 loader hide  <br />
+framework7.preloader.show   : custom : Framework7 loader show  <br />
+framework7.preloader.hide   : : Framework7 loader show   <br />
 
 
 ## Authors

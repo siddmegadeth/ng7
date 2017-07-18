@@ -1,5 +1,14 @@
 # NG7
-AngularJS Wrapper around Framework7
+AngularJS Wrapper around Framework7 [Framework7](http://framework7.io/)
+Framework7 is a Hybrid Application development API based Framework with its own eco system
+of UI Components/Routing specifically targeted towards Android/iOS app development all using
+HTMl5 and CSS3.
+
+NG7 is a wrapper or to be more precise a binding framework which help binds Framework7 and AngularJS 
+together. NG7 allows existing developers to quickly start with Framework7 Components without reinventing
+the learning curve(However,UI Components CSS need to be look into). NG7 allows Framework7 UI Components
+to be written in AngularJS way.
+
 
 ## Getting Started
 

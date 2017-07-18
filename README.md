@@ -1,80 +1,117 @@
-# Project Title
-
-One Paragraph of project description goes here
+# NG7
+AngularJS Wrapper around Framework7
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This is a wrapper around Framework7 Framework. This wrapper helps initialize Framework7 to be written as an 
+AngularJS Application. All AngularjS Feature are supported along with Framework7
 
 ### Prerequisites
+This wrapper requires basic knowledge of AngularJS and Framework7 to bootstrap.
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Donwload the ** Framework7-angular **  or clone it.
+add a reference to file in  ** index.html **
 
 ```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+<script src="Framework7-angular/providers/framework7-providers.js" ></script>
 
 ```
-Give an example
-```
+This is a base init file and must be referenced ** (required) **
 
-### And coding style tests
-
-Explain what these tests test and why
+In your AngularJS Application add reference  **"framework7.core" ** to DI (Dependency Injection) in angular.module 
 
 ```
-Give an example
+var app = angular.module("myApp",["framework7.core"]);
 ```
 
-## Deployment
+Ensure Framework7 and AngularJS are referenced before in  ** index.html **
 
-Add additional notes about how to deploy this on a live system
+ 
 
-## Built With
+### Configuration
+add reference in config block of AngularJS  ** "framework7CoreProvider" **
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+```
+app.config("framework7CoreProvider",function()
+{
+  framework7CoreProvider.init({
+      modalTitle: 'Framework7',
+      material: true,
+      pushState: true,
+      angular: true,
+      domCache: true,
+      swipePanel: 'left'
+},function(resp)
+{
+  log("Framework7 Initialization Successful");
+ 
 
-## Contributing
+}).event(function()
+{
+    $$('body').on('touchstart','.pac-container', function(e){
+    e.stopImmediatePropagation();
+    });
+    $$(document).on('pageInit', function (e) 
+    {
+       var page = e.detail.page;
+       log(page);
+       if (page.name === 'login') 
+       {
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+       }
+    });
+});
 
-## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+};
+
+```
+
+
+
+
+## API Reference
+ng7 supports rich set of API which enables any NG application to initialize using Framework7
+
+
+```
+var options = 
+{
+      modalTitle: 'Framework7',
+      material: true,
+      pushState: true,
+     ** angular: true,**
+      domCache: true,
+      swipePanel: 'left'
+}
+
+framework7CoreProvider.init(options,callbackFunction,callBackFunctionError);
+framework7CoreProvider.event(callbackFunction);
+
+
+```
+**framework7CoreProvider.init  : **  Provides a one time configuration to initiazlize Framework7 from 
+                                     **app.config** block. For Options Please refer to Framework7.
+                                     ** angular: true** must always be passed as a key value pair parameter
+                                     in options. (Required)
+                                     Failing to pass ** angular: true** will result in ng7 errors or unexpected behavior
+                                     
+
+
+
+**framework7CoreProvider.event  : ** This Functions allows to add Framework7 Page Level Events From Config Block.
+                                  ** event ** function enables to initialize and pass Event for Framework7. This is a 
+                                  one time activity.
+
+
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Siddharth Chandra** -  - [siddmegadeth](https://github.com/siddmegadeth)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
@@ -82,6 +119,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* This NG7 Wrapper is based on work of [Ashwin Kumar Suthar](https://github.com/ashvin777)
+* and was inspired from [Ashwin Kumar Suthar](https://github.com/ashvin777/framework7.angular)

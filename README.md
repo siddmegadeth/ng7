@@ -44,9 +44,13 @@ Ensure Framework7 and AngularJS are referenced before in  ** index.html **
 add reference in config block of AngularJS  ** "framework7CoreProvider" **
 
 ```
-app.config("framework7CoreProvider",function()
+log = console.log.bind(console);
+warn = console.warn.bind(console);
+error = console.error.bind(console);
+
+app.config("framework7Provider",function()
 {
-  framework7CoreProvider.init({
+  framework7Provider.init({
       modalTitle: 'Framework7',
       material: true,
       pushState: true,
@@ -94,13 +98,13 @@ var options =
       swipePanel: 'left'
 }
 
-framework7CoreProvider.init(options,callbackFunction,callBackFunctionError);
-framework7CoreProvider.event(callbackFunction);
+framework7Provider.init(options,callbackFunction,callBackFunctionError);
+framework7Provider.event(callbackFunction);
 
 
 ```
 
-**framework7CoreProvider.init  : **  
+**framework7Provider.init  : **  
 * Provides a one time configuration to initiazlize Framework7 from 
 ** app.config ** block. For Options Please refer to Framework7.
 ** angular: true** must always be passed as a key value pair parameter
@@ -109,10 +113,22 @@ in options. (Required). Failing to pass ** angular: true ** will result in ng7 e
 
 
 
-**framework7CoreProvider.event  : ** 
+**framework7Provider.event  : ** 
 * This Functions allows to add Framework7 Page Level Events From Config Block.
 ** event ** function enables to initialize and pass Event for Framework7. This is a 
 one time activity.
+
+
+**Other API Documentation under process **
+But if you like you could check it out
+framework7.picker(<element id>) : Opens Time Picker with Date
+framework7.datePicker   : picks with date
+framework7.modal.alert   : Framework7 Alert
+framework7.modal.confirm  : Framework7 confirm
+framework7.modal.indicatorShow : Framework7 loader show
+framework7.modal.indicatorHide : Framework7 loader hide
+framework7.preloader.show   : custom : Framework7 loader show
+framework7.preloader.hide   : : Framework7 loader show 
 
 
 ## Authors

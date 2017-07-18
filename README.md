@@ -70,9 +70,6 @@ app.config("framework7CoreProvider",function()
 
 ```
 
-
-
-
 ## API Reference
 ng7 supports rich set of API which enables any NG application to initialize using Framework7
 
@@ -93,18 +90,18 @@ framework7CoreProvider.event(callbackFunction);
 
 
 ```
+
 **framework7CoreProvider.init  : **  
-Provides a one time configuration to initiazlize Framework7 from 
+* Provides a one time configuration to initiazlize Framework7 from 
 ** app.config ** block. For Options Please refer to Framework7.
 ** angular: true** must always be passed as a key value pair parameter
-in options. (Required)
-Failing to pass ** angular: true** will result in ng7 errors or unexpected behavior
+in options. (Required). Failing to pass ** angular: true ** will result in ng7 errors or unexpected behavior
 
 
 
 
-**framework7CoreProvider.event  : 
-** This Functions allows to add Framework7 Page Level Events From Config Block.
+**framework7CoreProvider.event  : ** 
+* This Functions allows to add Framework7 Page Level Events From Config Block.
 ** event ** function enables to initialize and pass Event for Framework7. This is a 
 one time activity.
 

@@ -129,14 +129,17 @@ one time activity.
 
 Below is the list of API built around Framework7 API. These API are wrapper for AngularJS
 
-* [framework7.picker(<element id>)] -Open Time Picker with Date
-* [framework7.datePicker()] - Open Picker for Date only.
-* [framework7.modal.alert()] - Provide Modal with Custom Message. Suport Object.
-* [framework7.modal.confirm()] - Confirmation Modal with a Callback for success or failure based on click
-* [framework7.modal.indicatorShow()] - Show Async Screen loader while loading http request or Pages 
-* [framework7.modal.indicatorHide()] - Hide loader once request is done
-* [framework7.preloader.show()] - Screen loader with custom elements
-* [framework7.preloader.hide()) - Hide screen loader.
+
+| API  | Description |
+| ------ | ------ |
+| framework7.picker(<element id>) | -Open Time Picker with Date
+| framework7.datePicker() | Open Picker for Date only.
+| framework7.modal.alert() | Provide Modal with Custom Message. Suport Object.
+| framework7.modal.confirm() | Confirmation Modal with a Callback for success or failure based on click
+| framework7.modal.indicatorShow() |  Show Async Screen loader while loading http request or Pages 
+| framework7.modal.indicatorHide() | Hide loader once request is done
+| framework7.preloader.show() | Screen loader with custom elements
+| framework7.preloader.hide() | Hide screen loader.
 
 Further work is in progress and i would release the full documentation with details such as function arguments.
 

@@ -28,6 +28,13 @@ add a reference to file in  ** index.html **
 <script src="Framework7-angular/providers/framework7-providers.js" ></script>
 
 ```
+Ensure you have also added jquery. Currently i am using jquery version 
+```
+jquery-3.2.1.min.js
+
+```
+
+
 This is a base init file and must be referenced ** (required) **
 
 In your AngularJS Application add reference  ** framework7.core ** to DI (Dependency Injection) in angular.module 

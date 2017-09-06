@@ -124,17 +124,21 @@ This Functions allows to add Framework7 Page Level Events From Config Block.
 one time activity.
 
 
-** Other API Documentation under process ** <br />
-But if you like you could check it out <br />
-framework7.picker(<element id>) : Opens Time Picker with Date <br />
-framework7.datePicker   : picks with date  <br />
-framework7.modal.alert   : Framework7 Alert  <br />
-framework7.modal.confirm  : Framework7 confirm  <br />
-framework7.modal.indicatorShow : Framework7 loader show  <br />
-framework7.modal.indicatorHide : Framework7 loader hide  <br />
-framework7.preloader.show   : custom : Framework7 loader show  <br />
-framework7.preloader.hide   : : Framework7 loader show   <br />
 
+### NG7 API Documentation
+
+Below is the list of API built around Framework7 API. These API are wrapper for AngularJS
+
+* [framework7.picker(<element id>)] -Open Time Picker with Date
+* [framework7.datePicker()] - Open Picker for Date only.
+* [framework7.modal.alert()] - Provide Modal with Custom Message. Suport Object.
+* [framework7.modal.confirm()] - Confirmation Modal with a Callback for success or failure based on click
+* [framework7.modal.indicatorShow()] - Show Async Screen loader while loading http request or Pages 
+* [framework7.modal.indicatorHide()] - Hide loader once request is done
+* [framework7.preloader.show()] - Screen loader with custom elements
+* [framework7.preloader.hide()) - Hide screen loader.
+
+Further work is in progress and i would release the full documentation with details such as function arguments.
 
 ## Authors
 

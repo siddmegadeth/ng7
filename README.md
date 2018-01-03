@@ -12,10 +12,16 @@ to be written in AngularJS way.
 
 ## Getting Started
 
-This is a wrapper around Framework7. This wrapper helps initialize Framework7 to be written as an 
-AngularJS Application. All AngularjS Feature are supported along with Framework7
-Download WinDevice [WinDevice](https://github.com/siddmegadeth/winDevice) for logging and Bootstrapping Application
-based on Android/iPhone or Browser.
+This is a wrapper around Framework7. This wrapper helps initialize Framework7 to be written as an AngularJS Application. All AngularjS Feature are supported along with Framework7
+Download **WinDevice** [WinDevice](https://github.com/siddmegadeth/winDevice) for logging and Bootstrapping Application
+ on** Android/iPhone/Browser**.
+>  **WinDevice** is required . If not using winDevice then use the below code and copy/paste
+into js file.
+
+    log = console.log.bind(console);
+    warn = console.warn.bind(console);
+    error = console.error.bind(console);
+
 
 ### Prerequisites
 This wrapper requires basic knowledge of AngularJS and Framework7 to bootstrap.

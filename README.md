@@ -14,6 +14,8 @@ to be written in AngularJS way.
 
 This is a wrapper around Framework7. This wrapper helps initialize Framework7 to be written as an 
 AngularJS Application. All AngularjS Feature are supported along with Framework7
+Download WinDevice [WinDevice](https://github.com/siddmegadeth/winDevice) for logging and Bootstrapping Application
+based on Android/iPhone or Browser.
 
 ### Prerequisites
 This wrapper requires basic knowledge of AngularJS and Framework7 to bootstrap.
@@ -55,38 +57,47 @@ log = console.log.bind(console);
 warn = console.warn.bind(console);
 error = console.error.bind(console);
 
-app.config("framework7Provider",function()
-{
-  framework7Provider.init({
-      modalTitle: 'Framework7',
-      material: true,
-      pushState: true,
-      angular: true,
-      domCache: true,
-      swipePanel: 'left'
-},function(resp)
-{
-  log("Framework7 Initialization Successful");
- 
+  app.config(['framework7Provider',function(framework7Provider) {
 
-}).event(function()
-{
-    $$('body').on('touchstart','.pac-container', function(e){
-    e.stopImmediatePropagation();
-    });
-    $$(document).on('pageInit', function (e) 
-    {
-       var page = e.detail.page;
-       log(page);
-       if (page.name === 'login') 
-       {
+            framework7Provider.init({
+                    modalTitle: 'iRover Cabs',
+                    material: true,
+                    pushState: false, //Would be False if Cordova Is Detected
+                    angular: true,
+                    domCache: true,
+                    swipePanel: 'left',
+                    tapHold: true //enable tap hold events
 
-       }
-    });
-});
+                }, function(resp) {
+                    log("Initialize Service");
+                    //Perform Check if User is Authorized To Landing Page Else Send To Login
+                    //Before Routing To Landing CHeck For Permission For Request Device Feature
+                    //isLocationAvailable isLocationAuthorized
 
+                    //window.location.hash = "#!components/landing/templates/landing.html";
+                }).event(function() {
+                    log("No Event Are Prescribed");
+                })
+                .route([{
+                    state: 'landing',
+                    path: 'components/landing/templates/landing.html',
+                    type: 'page'
 
-};
+                },
+                {
+                    state: 'global',
+                    path: 'components/global/templates/test.html',
+                    type: 'popup',
+                    className : '.global'
+
+                }])
+                .landingRoute({ state: 'landing' });
+        }
+    ]);
+
+    app.run(['$rootScope', function($rootScope) {
+
+    }]);
 
 ```
 

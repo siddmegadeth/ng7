@@ -199,8 +199,30 @@ referrence the code for `page`
       </a>
     </div>
 ```
+It is not required to reference or load pages in` index.html` beforehand.
+to navigate between `pages` and `popup pages` use the below directive in `html`
+
+`ng-ref=<STATE-NAME>`
+
+            <div class="right"><a href class="link icon-only" ng-ref='global'><i class="fa fa-search"></i></a></div>
+
+to use navigation from controller refer to the below code for reference.
 
 
+
+    
+    
+    
+    app.controller('globalCtrl', ['framework7', function(framework7) {
+        $rootScope.framework7 = framework7;
+        $rootScope.geolocation = geolocation;
+        $rootScope.notification = notification;
+        $rootScope.background = background;
+    }]);
+
+use `$rootScope.framework7.gotoPage(<STATE_NAME>) ` in controllers or 
+       ` framework7.gotoPage(<STATE_NAME>) ` in `html`.
+		
 ### NG7 API Documentation
 
 Below is the list of API built around Framework7 API. These API are wrapper for AngularJS

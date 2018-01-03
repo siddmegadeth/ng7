@@ -45,12 +45,12 @@
                 }
             }
         };
-
+        var stateHolder;
         angular.module("framework7.core", [])
             .provider('framework7', [function() {
 
                 var today = new Date();
-                var stateHolder;
+
                 var currentPopUpPage;
                 if (window.Framework7) {
 
@@ -78,6 +78,34 @@
                         },
                         route: function(stateArray) {
                             stateHolder = stateArray;
+                            stateHolder.forEach(function(resp) {
+                                log(resp);
+                                if (resp.type == "page") {
+                                    var link = document.createElement('link');
+                                    link.rel = 'import';
+                                    link.href = resp.path;
+                                    //link.setAttribute('async', ''); // make it async!
+                                    link.onload = function(e) {
+                                        warn("Templates Loaded");
+                                        log(e);
+                                    };
+                                    link.onerror = function(e) {
+                                        error("Error Loading HTML Templates");
+                                    };
+                                    document.head.appendChild(link);
+                                } else if (resp.type == "popup") 
+                                {
+                                    $.ajax({
+                                        url: resp.path,
+                                        success: function(data) {
+                                            warn("Appended PopUp To Body");
+                                            log(data);
+                                            $('body').append(data);
+                                        },
+                                        dataType: 'html'
+                                    });
+                                }
+                            });
                             log(stateHolder);
                             return this;
                         },
@@ -205,7 +233,7 @@
 
                                     return picker;
                                 }, //Func Endss
-                                actions : function(buttons) {
+                                actions: function(buttons) {
                                     return myApp.actions(buttons);
                                 },
                                 picker: function(elementPicker) {
@@ -273,6 +301,39 @@
 
                     }
                 };
+            }])
+            .directive('ngRef', ['framework7', function(framework7) {
+                return {
+                    restrict: 'A',
+                    scope: {
+                        state: '@ngRef'
+                    },
+                    link: function($scope, $elem, $attr) {
+                        $elem.on("click", function() {
+                            log($scope.state);
+                            stateHolder.forEach(function(s) {
+                                if (s.type == 'popup') {
+                                    log("Popup");
+                                    log(s);
+                                    if (s.state == $scope.state) {
+                                        log("State Found");
+                                        myApp.popup(s.className);
+                                        currentPopUpPage = s.className;
+                                    }
+                                }
+
+                                if (s.type == 'page') {
+                                    if (s.state == $scope.state) {
+                                        log("State Match Found");
+                                        mainView.router.loadPage(s.path);
+                                    }
+                                }
+                                //window.location.hash = '#!components/create-journey/templates/create-journey.html';
+                            });
+
+                        })
+                    }
+                }
             }]);
 
     } else {

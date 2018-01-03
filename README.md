@@ -58,6 +58,24 @@ Ensure Framework7 and AngularJS are referenced before in  ** index.html **
 ### Configuration
 add reference in config block of AngularJS  ** "framework7CoreProvider" **
 
+
+`index.html` reference
+
+
+    <body ng-controller="globalCtrl" ng-cloak class="layout-dark theme-indigo" disable-tap>
+        <div class="statusbar-overlay"></div>
+        <div class="panel-overlay"></div>
+        <div class="searchbar-overlay"></div>
+        <!-- Add  PopOver Pages Prehand -->
+        <div class="views">
+            <div class="view view-main">
+                <div class="pages navbar-fixed">
+                    <!-- this is where the dynamically pages will load -->
+                </div>
+            </div>
+        </div>
+    </body>
+
 ```
 log = console.log.bind(console);
 warn = console.warn.bind(console);

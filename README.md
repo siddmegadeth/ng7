@@ -279,3 +279,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * This NG7 Wrapper is based on work of [Ashwin Kumar Suthar](https://github.com/ashvin777)
 * and was inspired from [Ashwin Kumar Suthar](https://github.com/ashvin777/framework7.angular)
 * This is still under development and would be migrated to Angular 2/4 Specs in next release
+* Working on new Feature request. This repo might be moved to a new project for Angular 4/6 and Vue.js
